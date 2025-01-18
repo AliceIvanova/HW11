@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import pages.PracticePage;
 import pages.components.Utils;
 
-
+@Tag("full")
 public class PracticeFormTest extends TestBase {
   PracticePage practicePage = new PracticePage();
 
