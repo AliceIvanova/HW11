@@ -1,15 +1,11 @@
 package tests;
 
-import com.codeborne.selenide.WebDriverRunner;
+
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import pages.PracticePage;
-import pages.components.Utils;
 
 @Tag("full")
 public class PracticeFormTest extends TestBase {
