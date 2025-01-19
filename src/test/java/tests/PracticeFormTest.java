@@ -1,11 +1,11 @@
 package tests;
 
-
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import pages.PracticePage;
+import pages.components.Utils;
 
 @Tag("full")
 public class PracticeFormTest extends TestBase {
@@ -16,11 +16,11 @@ public class PracticeFormTest extends TestBase {
   @Step("Заполнение формы регистрации")
   void fillFormTest() {
     SelenideLogger.addListener("allure", new AllureSelenide());
-    PracticePage steps = new PracticePage();
+    //PracticePage steps = new PracticePage();
 
-    steps.openTestPage("/automation-practice-form");
-    //Utils.removeBanner();
-    steps.setFirstName("Alice")
+    practicePage.openTestPage("/automation-practice-form");
+    Utils.removeBanner();
+    practicePage.setFirstName("Alice")
       .setLastName("Ivanova")
       .setUserEmailInput("alice-lilo@mail.ru")
       .setGender("Female")
@@ -33,7 +33,7 @@ public class PracticeFormTest extends TestBase {
 
       .submitButton();
 
-    steps.checkResult("Student Name", "Alice Ivanova")
+    practicePage.checkResult("Student Name", "Alice Ivanova")
       .checkResult("Student Email", "alice-lilo@mail.ru")
       .checkResult("Gender", "Female")
       .checkResult("Mobile", "1234567891")

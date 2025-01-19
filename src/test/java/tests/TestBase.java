@@ -12,11 +12,11 @@ import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
-
+@Tag("full")
 public class TestBase {
   @BeforeEach
   @Step("Настройка конфигурации")
-  @Tag("full")
+
   void setUP() {
     Configuration.browserSize = "1920x1080";
     Configuration.pageLoadStrategy = "eager";
@@ -31,17 +31,15 @@ public class TestBase {
     Configuration.browserCapabilities = capabilities;
     SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
   }
-  @Tag("full")
+
   @AfterEach
   @Step("Закрытие веб-драйвера")
-  void turnDown() {
-      Selenide.closeWebDriver();
-  }
-  @AfterEach
   void addAttachments(){
     Attachments.screenshotAs("Last screenshot");
     Attachments.pageSource();
     Attachments.browserConsoleLogs();
     Attachments.addVideo();
+
+    Selenide.closeWebDriver();
   }
 }

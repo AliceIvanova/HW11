@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'io.qameta.allure' version '2.11.2'
 }
 
@@ -17,9 +17,6 @@ allure {
     }
 }
 
-repositories {
-    mavenCentral()
-}
 compileJava {
     options.encoding = 'UTF-8'
 }
@@ -27,18 +24,23 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     testImplementation(
-            "com.codeborne:selenide:7.2.3",
-            'com.codeborne:phantomjsdriver:1.5.0',
-            "org.junit.jupiter:junit-jupiter:5.10.2",
-            'org.slf4j:slf4j-simple:2.0.13',
+            "com.codeborne:selenide:7.0.0",
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            'org.slf4j:slf4j-simple:2.0.7',
+            'com.github.javafaker:javafaker:1.0.2',
             'io.qameta.allure:allure-selenide:2.27.0'
     )
-
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.22.1'
 }
 
 tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -48,9 +50,8 @@ tasks.withType(Test) {
         }
     }
 }
-test {
-    useJUnitPlatform()
-}
+
+
 task full_test(type: Test) {
     useJUnitPlatform {
         includeTags("full")
