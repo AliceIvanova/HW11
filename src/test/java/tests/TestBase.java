@@ -21,11 +21,12 @@ public class TestBase {
   //  String browser=System.getProperty("browser", "chrome");
    // String windowSize=System.getProperty("windowSize","190x1080");
     //String version=System.getProperty("version", "101");
-   Configuration.browserSize = "1920x1080";
-    Configuration.browser="chrome";
+   //String wbHost=System.getProperty("wbHost", "host");
+   Configuration.browserSize = System.getProperty("PERMISSION","1920x1080");
+    Configuration.browser=System.getProperty("BROWSER","chrome");
     Configuration.pageLoadStrategy = "eager";
-    Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-    Configuration.baseUrl = "https://demoqa.com";
+    Configuration.remote = System.getProperty("WDHOST","https://user1:1234@selenoid.autotests.cloud/wd/hub");
+    Configuration.baseUrl = System.getProperty("baseURL","https://demoqa.com");
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("selenoid:options", Map.<String, Object>of(
