@@ -12,13 +12,17 @@ import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
-@Tag("full")
+//@Tag("full")
 public class TestBase {
   @BeforeEach
   @Step("Настройка конфигурации")
 
   void setUP() {
-    Configuration.browserSize = "1920x1080";
+  //  String browser=System.getProperty("browser", "chrome");
+   // String windowSize=System.getProperty("windowSize","190x1080");
+    //String version=System.getProperty("version", "101");
+   Configuration.browserSize = "1920x1080";
+    Configuration.browser="chrome";
     Configuration.pageLoadStrategy = "eager";
     Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     Configuration.baseUrl = "https://demoqa.com";
