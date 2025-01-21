@@ -18,15 +18,12 @@ public class TestBase {
   @Step("Настройка конфигурации")
 
   void setUP() {
-  //  String browser=System.getProperty("browser", "chrome");
-   // String windowSize=System.getProperty("windowSize","190x1080");
-    //String version=System.getProperty("version", "101");
-   //String wbHost=System.getProperty("wbHost", "host");
    Configuration.browserSize = System.getProperty("PERMISSION","1920x1080");
     Configuration.browser=System.getProperty("BROWSER","chrome");
     Configuration.pageLoadStrategy = "eager";
-    Configuration.remote = System.getProperty("WDHOST","https://user1:1234@selenoid.autotests.cloud/wd/hub");
+    Configuration.remote ="https://user1:1234@"+ System.getProperty("host","selenoid.autotests.cloud")+"/wd/hub";
     Configuration.baseUrl = System.getProperty("baseURL","https://demoqa.com");
+    Configuration.browserVersion=System.getProperty("browserVersion");
 
     DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("selenoid:options", Map.<String, Object>of(
