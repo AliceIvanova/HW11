@@ -1,0 +1,13 @@
+8181835909:AAETvZaoTzTODwx2pW0lX18Vu3NanW1bK3Y
+
+https://api.telegram.org/bot8181835909:AAETvZaoTzTODwx2pW0lX18Vu3NanW1bK3Y/getUpdates
+
+-1002483997470
+
+java "-DconfigFile=notifications/config.json" -jar ./notifications/allure-notifications-4.8.0.jar
+
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-1002483997470", "text": "This is a test from qa Kuzia", "disable_notification": true}' https://api.telegram.org/bot$8181835909:AAETvZaoTzTODwx2pW0lX18Vu3NanW1bK3Y/sendMessage
+
+http://192.168.43.97:64107/index.html
+
+C:\Users\Alisa\AppData\Local\Temp\13368932034680220935\allure-report
