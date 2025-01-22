@@ -18,8 +18,8 @@ public class TestBase {
   @Step("Настройка конфигурации")
 
   void setUP() {
-   Configuration.browserSize = System.getProperty("PERMISSION","1920x1080");
-    Configuration.browser=System.getProperty("BROWSER","chrome");
+   Configuration.browserSize = System.getProperty("permission","1920x1080");
+    Configuration.browser=System.getProperty("browser","chrome");
     Configuration.pageLoadStrategy = "eager";
     Configuration.remote ="https://user1:1234@"+System.getProperty("host","selenoid.autotests.cloud")+"/wd/hub";
     Configuration.baseUrl = System.getProperty("baseURL","https://demoqa.com");
